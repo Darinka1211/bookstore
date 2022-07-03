@@ -1,0 +1,29 @@
+@import "../../style/variables.scss";
+
+svg {display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    background-color: $bg-primary;
+    border: none;
+    path {
+      fill: $system-primary;
+      stroke: $system-primary;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    &:hover {
+      path {
+        fill: $contextual-color;
+        stroke: $contextual-color;
+      }
+    }
+  
+    &:disabled {
+      path {
+        fill: $system-secondary;
+        stroke: $system-secondary;
+      }
+    }
+
+}

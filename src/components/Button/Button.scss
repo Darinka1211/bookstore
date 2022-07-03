@@ -1,0 +1,31 @@
+@import "../../style/variables.scss";
+
+
+button {
+  width: 10%;
+  padding: 18px;
+  background-color: $system-primary;
+  border: none;
+  border: none;
+
+  color: $bg-primary;
+  text-align: center;
+  transition: background 0.5s;
+  font-family: "Bebas Neue";
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+
+  &:hover {
+    background-color: $system-primary2;
+  }
+
+  &:active {
+    background-color: $system-primary;
+  }
+
+  &:disabled {
+    background-color: $system-secondary;
+  }
+;
+}
