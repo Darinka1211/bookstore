@@ -1,0 +1,26 @@
+@import "../../style/variables";
+
+.footer{
+    border-top: 1px solid $system-primary;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: $system-primary;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 24px;
+    padding: 33px 0;
+    background-color: $bg-secondary;
+}
+@media screen and (max-width: 600px) {
+    .footer{
+        flex-direction: column;
+        align-items: center;
+        
+        &--padding-24{
+            padding-bottom: 24px;
+        }
+    }
+}
