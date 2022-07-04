@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './BookICart.scss';
+import './BookCart.scss';
 
 type Book = {
   image: string;
