@@ -45,7 +45,7 @@ interface IBurgerMenu {
           </div>
           <div className="search">
             <form onSubmit={handleSubmit(onSubmit)}>
-              <input className="input" placeholder="Search" type="text" {...register('title')} />
+              <input className="input__form" placeholder="Search" type="text" {...register('title')} />
             </form>
           </div>
           {isAuth && <Link to={`/${routes.FAVORITES}`}>FAVORITES</Link>}
