@@ -8,14 +8,15 @@ import { Footer } from './components/Footer/Footer';
 import { BookCart } from './components/BookCart/BookCart';
 import {BurgerMenu} from "./components/BurgerMenu/BurgerMenu"
 import { ChangeEvent, useEffect, useState } from "react";
+import FavoriteBook from './components/FavoriteBook/FavoriteBook';
+
 
 function App() {
  
 
   return (
     <div className="App">
-    
-
+ 
     </div>
   );
 }
