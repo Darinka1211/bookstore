@@ -13,6 +13,7 @@ import { fetchNavSearchBooks } from '../../store/slices/navSearchBooksSlice';
 import { getNavSearchBooks } from '../../store/selectors/navSearchBooksSelectors';
 import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
+import "./Navbar.scss"
 interface ICart {
   image: string;
   title: string;

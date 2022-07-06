@@ -9,6 +9,7 @@ import { BookCart } from './components/BookCart/BookCart';
 import {BurgerMenu} from "./components/BurgerMenu/BurgerMenu"
 import { ChangeEvent, useEffect, useState } from "react";
 import FavoriteBook from './components/FavoriteBook/FavoriteBook';
+import Loading from './components/Loading/Loading';
 
 
 function App() {
