@@ -1,0 +1,48 @@
+@import '../../style/variables';
+
+.pagination_div{
+    display: grid;
+  grid-template-columns: 60px 1fr 60px;
+  margin-bottom: 30px;
+}
+.btn__nav{
+    display: flex;
+  align-items: center;
+  gap: 11px;
+  background-color: $bg-primary;
+  font-family: "Helios";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: $system-secondary;
+  transition: color 0.5s;
+  path {
+    transition: fill 0.5s;
+    fill: $system-secondary;
+  }
+  &:hover {
+    color: $system-primary;
+  }
+  &:hover path {
+    fill: $system-primary;
+  }
+}
+.page__list{
+margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.btn_pages{
+display: flex;
+  align-items: center;
+  background-color: $bg-primary;
+  font-family: "Helios";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;;
+  
+  &:hover {
+    color: $system-primary;
+  }
+}
