@@ -10,6 +10,7 @@ import {BurgerMenu} from "./components/BurgerMenu/BurgerMenu"
 import { ChangeEvent, useEffect, useState } from "react";
 import FavoriteBook from './components/FavoriteBook/FavoriteBook';
 import Loading from './components/Loading/Loading';
+import SearchBook from './components/SearchBook/SearchBook';
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
 
   return (
     <div className="App">
- 
+ <SearchBook {...book}/>
     </div>
   );
 }
