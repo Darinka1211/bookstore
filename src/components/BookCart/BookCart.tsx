@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './BookCart.scss';
 
-type Book = {
+interface IBook  {
   image: string;
   isbn13: string;
   price: string;
@@ -11,7 +11,7 @@ type Book = {
   url: string;
 };
 interface IBookCart {
-  book: Book;
+  book: IBook;
 }
 export const BookCart = ({ book }: IBookCart) => {
   return (
