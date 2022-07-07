@@ -1,0 +1,64 @@
+@import '../../style/variables';
+.div__container {
+  min-height: 60vh;
+  height: 100%;
+}
+.div__btn {
+  margin-top: 77px;
+  cursor: pointer;
+  path {
+    fill: $system-primary;
+  }
+}
+.div__checklist {
+  width: 256px;
+  margin-top: 48px;
+  margin-bottom: 72px;
+  margin-left: auto;
+}
+.btn__checkout {
+  width: 100%;
+  background-color: $system-primary2;
+}
+.checklist__item {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Helios';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: $system-secondary;
+  &:first-child {
+    margin-bottom: 16px;
+  }
+  span {
+    color: $system-primary;
+  }
+}
+h1 {
+  margin-top: 37px;
+  margin-bottom: 50px;
+  font-family: 'Bebas Neue';
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 64px;
+  color: $system-primary;
+}
+h2 {
+  display: flex;
+  justify-content: space-between;
+  margin: 24px 0;
+  font-family: 'Bebas Neue';
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 60px;
+  color: $system-primary;
+}
+p {
+  text-align: center;
+  font-family: 'Bebas Neue';
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: $system-primary;
+}

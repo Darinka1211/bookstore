@@ -12,6 +12,7 @@ import FavoriteBook from './components/FavoriteBook/FavoriteBook';
 import Loading from './components/Loading/Loading';
 import SearchBook from './components/SearchBook/SearchBook';
 import Subscribe from './components/Subshribe/Subscribe';
+import Cart from "../src/pages/Cart/Cart"
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
 
   return (
     <div className="App">
-<Subscribe/>
+<Cart></Cart>
     </div>
   );
 }
