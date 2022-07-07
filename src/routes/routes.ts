@@ -7,5 +7,5 @@ export enum routes {
   FAVORITES = "favorites",
   CART = "cart",
   ACCOUNT = "account",
-  NOT_FOUND = "*",
+  
 }

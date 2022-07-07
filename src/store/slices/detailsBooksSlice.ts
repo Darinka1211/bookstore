@@ -3,6 +3,10 @@ import { bookApi } from "../../services/bookServises";
 import { IBookDetailsApi } from "../../services/types/intex";
 import { IDetailsBookSlice } from "./types";
 
+
+
+
+
 const initialState: IDetailsBookSlice = {
   result: {
     authors: "",

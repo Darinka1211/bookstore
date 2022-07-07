@@ -1,6 +1,26 @@
+import React from "react";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ICart } from "../../types/types";
-import { ICartSlice } from "./types";
+
+ 
+interface ICart {
+  image: string;
+  title: string;
+  authors: string;
+  year: string;
+  price: string;
+  isbn13: string;
+  quantity: number;
+  totalPrice: string;
+}
+
+
+interface ICartSlice {
+  results: ICart[];
+  vat: number;
+  sumTotal: number;
+  total: number;
+}
+
 
 interface IQuantity {
   isbn13: string;
