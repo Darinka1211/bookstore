@@ -1,0 +1,95 @@
+@import '../../style/variables';
+
+.div__signIn__container {
+  max-width: 544px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  border: 1px solid $bg-primary2;
+}
+.div__tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid $bg-primary2;
+  padding: 0 32px;
+}
+.tab {
+  padding: 26px 0;
+  text-align: center;
+  color: $system-secondary;
+  font-family: 'Bebas Neue';
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  cursor: pointer;
+  transition: all 0.3s;
+  &:first-child {
+    border-bottom: 2px solid $system-primary;
+    color: $system-primary;
+  }
+  &:last-child:hover {
+    color: $bg-primary2;
+  }
+}
+.form__onsubmit {
+  padding: 32px;
+  padding-bottom: 40px;
+}
+.label__email {
+  margin-bottom: 16px;
+  &:last-of-type {
+    margin-bottom: 40px;
+  }
+}
+input {
+  width: 100%;
+  height: 56px;
+  padding: 0 20px;
+  border: 1px solid $bg-primary2;
+  font-family: 'Helios';
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 32px;
+  &::placeholder {
+    color: $system-secondary;
+  }
+}
+&:focus {
+  outline: none;
+  border: 2px solid $bg-primary2;
+}
+&:active {
+  border: 1px solid $bg-primary2;
+}
+&:disabled {
+  background-color: $bg-primary2;
+}
+.ladel__form {
+  margin-bottom: 4px;
+  font-family: 'Helios';
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 32px;
+  font-weight: 700;
+  color: $system-primary;
+}
+.label__error {
+  margin-top: 4px;
+  font-family: 'Helios';
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 32px;
+  font-weight: 700;
+  color: $contextual-color;
+}
+.div__error {
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: $contextual-color;
+  font-family: 'Helios';
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: center;
+}
