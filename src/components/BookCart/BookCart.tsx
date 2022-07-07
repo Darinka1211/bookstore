@@ -24,3 +24,5 @@ export const BookCart = ({ book }: IBookCart) => {
     </Link>
   );
 };
+
+export default BookCart;

@@ -1,0 +1,27 @@
+@import '../../style/variables';
+.div__search {
+  padding: 72px 0;
+}
+h1 {
+  font-family: 'Bebas Neue';
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 64px;
+  color: $system-primary;
+  margin-bottom: 30px;
+}
+h3 {
+  font-family: 'Helios';
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  color: $system-secondary;
+  margin-bottom: 50px;
+}
+ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+  padding: 0;
+  margin-bottom: 100px;
+}

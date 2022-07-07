@@ -1,0 +1,37 @@
+@import '../../style/variables';
+.div__container__favorite {
+  padding-bottom: 50px;
+}
+.div__btn {
+  margin-top: 77px;
+  cursor: pointer;
+  path {
+    fill: $system-primary;
+  }
+}
+h1 {
+  margin-top: 37px;
+  margin-bottom: 50px;
+  font-family: 'Bebas Neue';
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 64px;
+  color: $system-primary;
+}
+p {
+  text-align: center;
+  margin-bottom: 50px;
+  font-family: 'Bebas Neue';
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: $system-primary;
+}
+h2 {
+  font-family: 'Bebas Neue';
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 60px;
+  color: $system-primary;
+  margin-bottom: 30px;
+}
