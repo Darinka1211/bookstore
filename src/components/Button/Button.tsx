@@ -1,9 +1,9 @@
 import {StyledButton} from "./styles_sass"
-type Button = {
+interface IButton  {
   text: string;
 }
 
-export const Button = ({ text }: Button) => {
+export const Button = ({ text }: IButton) => {
   return <StyledButton type="submit">{text} </StyledButton>;
 };
 
