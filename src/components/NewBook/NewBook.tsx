@@ -14,7 +14,7 @@ const NewBooks = () => {
   useEffect(() => {
     dispatch(fetchNewBooks());
   }, [dispatch]);
-  
+ 
 
   if (status === 'loading') {
     return <Loading />;

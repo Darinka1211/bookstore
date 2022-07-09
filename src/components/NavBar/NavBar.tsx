@@ -62,7 +62,8 @@ export const NavBar = () => {
   const carts: Cart[] = useAppSelector(getCarts);
   useEffect(() => {
     dispatch(fetchNavSearchBooks({ title, page }));
-  }, [title]);
+   }, [title]);
+  console.log(useEffect)
   const onSubmit = (data: Data) => {
     navigate(`search/${data.title}/1`);
     setTitle('');
