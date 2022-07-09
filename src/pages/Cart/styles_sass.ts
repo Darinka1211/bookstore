@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 
+
 const StyledCart = styled.div`
   min-height: 60vh;
   height: 100%;
