@@ -1,20 +1,13 @@
-import React from "react";
-import NewBooks from "../../components/NewBook/NewBook";
-import BookSlider from "../../components/BookSlider/BookSlider";
-import { useAppSelector } from "../../store/hooks/hooks";
-import { getRecommendedBooks } from "../../store/selectors/recommendedBooksSelector";
-
+import React from 'react';
+import NewBooks from '../../components/NewBook/NewBook';
+import { StyledHome, StyledTitle } from './styles';
 
 
 const Home = () => {
-  const recommendedBooks = useAppSelector(getRecommendedBooks);
   return (
-    <div>
-      <h1>Recommended Books</h1>
-      <BookSlider books={recommendedBooks} />
+    <StyledHome>
       <NewBooks />
-      
-    </div>
+    </StyledHome>
   );
 };
 

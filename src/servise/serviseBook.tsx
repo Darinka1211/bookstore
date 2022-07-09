@@ -1,9 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 
-
-
-
 export interface IBook {
   image: string;
   isbn13: string;
@@ -41,21 +38,16 @@ export interface ISearchBooksSlice {
   error: any;
   status: RequestStatusType;
 }
-
 export interface INewBooksSlice {
   results: INewBooksApi;
   error: any;
   status: RequestStatusType;
 }
-
-
-
  export interface IDetailsBookSlice {
   result: IBookDetails;
   error: any;
   status: RequestStatusType;
 }
-
 export interface INewBooksApi {
   books: IBook[];
   error: null;
@@ -69,7 +61,7 @@ export interface ISearchBooksApi extends INewBooksApi {
 type RequestStatusType = "idle" | "loading" | "success" | "error";
 
 class BookService {
-  private readonly API_URL = process.env.REACT_APP_API_URL;
+  private readonly API_URL = 'https://api.itbook.store/1.0/';
 
   private api = axios.create({
     baseURL: this.API_URL,
@@ -90,5 +82,4 @@ class BookService {
     return data;
   }
 }
-
 export const bookApi = new BookService();

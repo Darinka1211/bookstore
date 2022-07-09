@@ -18,8 +18,8 @@ import {
   StyledMenuContainer,
   StyledMenuNav,
   StyledSearch,
-  StyledInput
-} from "./styles_sass";
+  StyledInput,
+} from './styles_sass';
 interface IData {
   title: string;
 }
@@ -27,7 +27,7 @@ interface IMenu {
   handleClose: () => void;
   isOpen: boolean;
 }
- export const Menu = ({ handleClose, isOpen }: IMenu) => {
+export const Menu = ({ handleClose, isOpen }: IMenu) => {
   const { isAuth } = useAppSelector(getUser);
   const { register, handleSubmit } = useForm<IData>();
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ interface IMenu {
   const onSubmit = (data: IData) => {
     navigate(`search/${data.title}/1`);
   };
-  
+
   const handleAuth = () => {
     if (isAuth) {
       dispatch(unsetUser());
@@ -54,25 +54,14 @@ interface IMenu {
           </StyledCloseContainer>
           <StyledSearch>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <StyledInput
-                placeholder="Search"
-                type="text"
-                {...register("title")}
-              />
+              <StyledInput placeholder="Search" type="text" {...register('title')} />
               <Icon id="search" />
             </form>
           </StyledSearch>
-          {isAuth && (
-            <StyledLink to={`/${routes.FAVORITES}`}>
-              FAVORITES
-            </StyledLink>
-          )}
-          {isAuth && (
-            <StyledLink to={`/${routes.CART}`}>CART</StyledLink>
-          )}
-
+          {isAuth && <StyledLink to={`/${routes.FAVORITES}`}>FAVORITES</StyledLink>}
+          {isAuth && <StyledLink to={`/${routes.CART}`}>CART</StyledLink>}
           <StyledButton onClick={handleAuth}>
-            <Button text={isAuth ? "LOG OUT" : "SIGN IN"} />
+            <Button text={isAuth ? 'LOG OUT' : 'SIGN IN'} />
           </StyledButton>
         </StyledMenuNav>
       </StyledMenuContainer>

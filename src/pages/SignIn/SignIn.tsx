@@ -7,7 +7,17 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { setUser } from "../../store/slices/userSlice";
 import { useState } from "react";
 import { useAppDispatch } from "../../store/hooks/hooks";
-import "./SignIn.scss"
+import {
+  StyledContainer,
+  StyledError,
+  StyledErrorLabel,
+  StyledForm,
+  StyledInput,
+  StyledLabel,
+  StyledSign,
+  StyledTab,
+  StyledTabs,
+} from "./styles_sass";
 
 interface ISignIn {
   email: string;
@@ -44,58 +54,58 @@ const SignIn = () => {
       });
   };
   return (
-    <div className="div__signIn__container">
-      <div className="div__tabs">
-        <div className="tab">SIGN IN</div>
-        <div className="tab"  onClick={() => navigate(`/${routes.SIGN_UP}`)}>
-          SIGN UP
-        </div>
-      </div>
-      <form className="form__onsubmit" onSubmit={handleSubmit(onSubmit)}>
-        {error && <div className="div__error">{error}</div>}
-        <div className="label__email">
-          <label className="ladel__form" htmlFor="email">Email</label>
-          <input
-            {...register("email", {
-              required: "Email is require field!",
-              pattern: {
-                value: /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
-                message: "Please enter valid email!",
-              },
-            })}
-            placeholder="Your email"
-            id="email"
-          />
-          {errors?.email && (
-            <label className="label__error">
-              {errors?.email?.message || "Error"}
-            </label>
-          )}
-        </div>
-        <div className="label__email">
-          <label className="ladel__form" htmlFor="password">Password</label>
-          <input
-            {...register("password", {
-              required: "Password is require field!",
-              minLength: {
-                value: 6,
-                message: "Minimum 8 characters!",
-              },
-            })}
-            placeholder="Your password"
-            id="password"
-            type="password"
-          />
-          {errors?.password && (
-            <label className="label__error">
-              {errors?.password?.message || "Error"}
-            </label>
-          )}
-        </div>
-        <Button text="SIGN IN" />
-      </form>
-    </div>
-  );
+    <StyledSign>
+    <StyledTabs>
+      <StyledTab>SIGN IN</StyledTab>
+      <StyledTab onClick={() => navigate(`/${routes.SIGN_UP}`)}>
+        SIGN UP
+      </StyledTab>
+    </StyledTabs>
+    <StyledForm onSubmit={handleSubmit(onSubmit)}>
+      {error && <StyledError>{error}</StyledError>}
+      <StyledContainer>
+        <StyledLabel htmlFor="email">Email</StyledLabel>
+        <StyledInput
+          {...register("email", {
+            required: "Email is require field!",
+            pattern: {
+              value: /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+              message: "Please enter valid email!",
+            },
+          })}
+          placeholder="Your email"
+          id="email"
+        />
+        {errors?.email && (
+          <StyledErrorLabel>
+            {errors?.email?.message || "Error"}
+          </StyledErrorLabel>
+        )}
+      </StyledContainer>
+      <StyledContainer>
+        <StyledLabel htmlFor="password">Password</StyledLabel>
+        <StyledInput
+          {...register("password", {
+            required: "Password is require field!",
+            minLength: {
+              value: 6,
+              message: "Minimum 8 characters!",
+            },
+          })}
+          placeholder="Your password"
+          id="password"
+          type="password"
+        />
+        {errors?.password && (
+          <StyledErrorLabel>
+            {errors?.password?.message || "Error"}
+          </StyledErrorLabel>
+        )}
+      </StyledContainer>
+      <Button text="SIGN IN" />
+    </StyledForm>
+  </StyledSign>
+);
 };
 
 export default SignIn;

@@ -1,18 +1,36 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import Button from '../../../components/Button/Button';
-import ButtonFavorites from '../../../components/ButtonFavorites/ButtonFavorites';
-import Icon from '../../../components/Icon/Icon';
-import Loading from '../../../components/Loading/Loading';
-import StarRating from '../../../components/StarRating/StarRating';
-import { useAppDispatch, useAppSelector } from '../../../store/hooks/hooks';
+import Button from '../../components/Button/Button';
+import ButtonFavorites from '../../components/ButtonFavorites/ButtonFavorites';
+import Icon from '../../components/Icon/Icon';
+import Loading from '../../components/Loading/Loading';
+import StarRating from '../../components/StarRating/StarRating';
+import { useAppDispatch, useAppSelector } from '../../store/hooks/hooks';
 import {
   getDetailsBook,
   getDetailsBookStatus,
-} from '../../../store/selectors/detailsBookSelectors';
-import { addCart } from '../../../store/slices/cartSlice';
-import { fetchBookDetails } from '../../../store/slices/detailsBooksSlice';
-import { addFavorite } from '../../../store/slices/favoriteBooksSlice';
+} from '../../store/selectors/detailsBookSelectors';
+import { addCart } from '../../store/slices/cartSlice';
+import { fetchBookDetails } from '../../store/slices/detailsBooksSlice';
+import { addFavorite } from '../../store/slices/favoriteBooksSlice';
+import {
+  StyledAddFovorite,
+  StyledArrowDown,
+  StyledBackButton,
+  StyledBookImage,
+  StyledBookInfo,
+  StyledButtonContainer,
+  StyledDetailsBook,
+  StyledIcons,
+  StyledIconsItem,
+  StyledMainCointainer,
+  StyledParams,
+  StyledPrice,
+  StyledTab,
+  StyledTabList,
+  StyledTabPanel,
+  StyledTitle,
+} from "./styles_sass";
 
 interface IBookDetails {
   authors: string;
@@ -114,78 +132,79 @@ const DetailsBook = () => {
   }
 
   return (
-    <div className="detailsBook_container">
-      <div className="div__btn" onClick={handleBack}>
+    <StyledDetailsBook>
+      <StyledBackButton onClick={handleBack}>
         <Icon id="back" />
-      </div>
-      <h2>{detailsBook?.title ? detailsBook.title : 'No Title'}</h2>
-      <div>
-        <div>
+      </StyledBackButton>
+      <StyledTitle>
+        {detailsBook?.title ? detailsBook.title : "No Title"}
+      </StyledTitle>
+      <StyledMainCointainer>
+        <StyledBookImage>
           <img src={detailsBook.image} alt={detailsBook.image} />
-          <div onClick={() => handleFavorite(detailsBook)}>
+          <StyledAddFovorite onClick={() => handleFavorite(detailsBook)}>
             <ButtonFavorites />
-          </div>
-        </div>
+          </StyledAddFovorite>
+        </StyledBookImage>
 
-        <div>
-          <h2>
+        <StyledBookInfo>
+          <StyledPrice>
             {detailsBook.price}
             <StarRating rating={Number(detailsBook.rating)} />
-          </h2>
-          <p>
+          </StyledPrice>
+          <StyledParams>
             Authors<span>{detailsBook.authors}</span>
-          </p>
-          <p>
+          </StyledParams>
+          <StyledParams>
             Publisher
             <span>
               {detailsBook.publisher}, {detailsBook.year}
             </span>
-          </p>
-          <p>
+          </StyledParams>
+          <StyledParams>
             Language<span>{detailsBook.language}</span>
-          </p>
-          <p>
-            Format<span>{'Paper book / ebook (PDF)'}</span>
-          </p>
-          <Link to="#tab" onClick={handleArrowDown}>
+          </StyledParams>
+          <StyledParams>
+            Format<span>{"Paper book / ebook (PDF)"}</span>
+          </StyledParams>
+          <StyledArrowDown to="#tab" onClick={handleArrowDown}>
             More details <Icon id="arrow-down"></Icon>
-          </Link>
-          <div className='div__btn__container' onClick={() => handleCart(detailsBook)}>
+          </StyledArrowDown>
+          <StyledButtonContainer onClick={() => handleCart(detailsBook)}>
             <Button text={addButtonText}></Button>
-          </div>
-        </div>
-      </div>
-      <div className='tab__list' id="tab">
-        <button className='activ__btn' 
-        // isActive={active === 'description'} 
-        onClick={handleDescription}>
+          </StyledButtonContainer>
+        </StyledBookInfo>
+      </StyledMainCointainer>
+      <StyledTabList id="tab">
+        <StyledTab
+          isActive={active === "description"}
+          onClick={handleDescription}
+        >
           Description
-        </button>
-        <button 
-        // isActive={active === 'authors'} 
-        onClick={handleAuthors}>
+        </StyledTab>
+        <StyledTab isActive={active === "authors"} onClick={handleAuthors}>
           Authors
-        </button>
-      </div>
-      <div className='div__panel'>
-        {active === 'description'
+        </StyledTab>
+      </StyledTabList>
+      <StyledTabPanel>
+        {active === "description"
           ? detailsBook.desc
-          : active === 'authors'
+          : active === "authors"
           ? detailsBook.authors
-          : 'oops'}
-      </div>
-      <div className='div__icons'>
-        <a href="https://facebook.com">
+          : "oops"}
+      </StyledTabPanel>
+      <StyledIcons>
+        <StyledIconsItem href="https://facebook.com">
           <Icon id="facebook" />
-        </a>
-        <a href="https://twitter.com">
+        </StyledIconsItem>
+        <StyledIconsItem href="https://twitter.com">
           <Icon id="twitter" />
-        </a>
-        <a href="https://linkedin.com">
+        </StyledIconsItem>
+        <StyledIconsItem href="https://linkedin.com">
           <Icon id="linkedin" />
-        </a>
-      </div>
-    </div>
+        </StyledIconsItem>
+      </StyledIcons>
+    </StyledDetailsBook>
   );
 };
 

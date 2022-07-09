@@ -1,15 +1,19 @@
 import React from "react";
 import "./Favorites.scss";
 import { Navigate, useNavigate } from "react-router-dom";
-import BooksSlider from "../../components/BookSlider/BookSlider";
 import FavoriteBook from "../../components/FavoriteBook/FavoriteBook";
 import Icon from "../../components/Icon/Icon";
-
 import { routes } from "../../routes/routes";
 import { useAppSelector } from "../../store/hooks/hooks";
 import { getFavoriteBooks } from "../../store/selectors/favoriteBooksSelectors";
-import { getRecommendedBooks } from "../../store/selectors/recommendedBooksSelector";
 import { getUser } from "../../store/selectors/userSelectors";
+import {
+  StyledBackButton,
+  StyledFavorites,
+  StyledText,
+  StyledTitle,
+} from "./styles_sass";
+
 interface IFavoriteBook {
     image: string;
     title: string;
@@ -23,31 +27,31 @@ interface IFavoriteBook {
     const { isAuth, email } = useAppSelector(getUser);
     const navigate = useNavigate();
     const favoriteBooks: IFavoriteBook[] = useAppSelector(getFavoriteBooks);
-    const recommendedBooks = useAppSelector(getRecommendedBooks);
+  
   
     const handleBack = () => {
       navigate(-1);
     };
     if (isAuth) {
       return (
-        <div className="div__container__favorite">
-          <div className="div__btn" onClick={handleBack}>
-            <Icon id="back" />
-          </div >
-          <h1>FAVORITES</h1>
-          {favoriteBooks.length === 0 ? (
-            <p>You have not favorite books!</p>
-          ) : (
-            favoriteBooks.map((book) => (
-              <FavoriteBook key={book.isbn13} book={book} />
-            ))
-          )}
-          <h2>Recommended Books</h2>
-          <BooksSlider books={recommendedBooks} />
-        </div>
-      );
-    }
-    return <Navigate to={`/${routes.SIGN_UP}`} />;
-  };
-  
-  export default Favorites;
+        <StyledFavorites>
+        <StyledBackButton onClick={handleBack}>
+          <Icon id="back" />
+        </StyledBackButton>
+        <StyledTitle>FAVORITES</StyledTitle>
+        {favoriteBooks.length === 0 ? (
+          <StyledText>You have not favorite books!</StyledText>
+        ) : (
+          favoriteBooks.map((book) => (
+            <FavoriteBook key={book.isbn13} book={book} />
+          ))
+        )}
+      
+        
+      </StyledFavorites>
+    );
+  }
+  return <Navigate to={`/${routes.SIGN_UP}`} />;
+};
+
+export default Favorites;

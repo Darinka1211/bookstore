@@ -1,11 +1,12 @@
 import React from "react";
 import Icon from "../Icon/Icon"
 
-import "./ButtonFavorites"
+import { StyledButton } from "./styles_sass";
 
 export const ButtonFavorites =()=> {
-    return (
-        <Icon id="favorites"/>
+    return (<StyledButton>
+        <Icon id="favorites" />
+      </StyledButton>
     )
 }
 export default ButtonFavorites;

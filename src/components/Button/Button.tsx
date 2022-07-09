@@ -1,12 +1,12 @@
 import React from 'react';
-import './Button.scss';
 
-interface IButton {
+import {StyledButton} from "./styles_sass"
+type Button = {
   text: string;
 }
 
-export const Button = ({ text }: IButton) => {
-  return <button type="submit">{text} </button>;
+export const Button = ({ text }: Button) => {
+  return <StyledButton type="submit">{text} </StyledButton>;
 };
 
 export default Button;

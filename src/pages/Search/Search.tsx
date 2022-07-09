@@ -1,44 +1,36 @@
-import React from "react";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import BookCart from "../../components/BookCart/BookCart";
-import Loading from "../../components/Loading/Loading";
-import Pagination from "../../components/Pagination/Pagination";
-
-import { useAppDispatch, useAppSelector } from "../../store/hooks/hooks";
+import React from 'react';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import BookCart from '../../components/BookCart/BookCart';
+import Loading from '../../components/Loading/Loading';
+import Pagination from '../../components/Pagination/Pagination';
+import { useAppDispatch, useAppSelector } from '../../store/hooks/hooks';
 import {
   getSearchBooks,
   getSearchBooksStatus,
   getSearchBooksTotalPage,
-} from "../../store/selectors/searchBooksSelectors";
-import {
-  fetchSearchBooks,
-  setCurrentPage,
-} from "../../store/slices/searchBooksSlice";
-
+} from '../../store/selectors/searchBooksSelectors';
+import { fetchSearchBooks, setCurrentPage } from '../../store/slices/searchBooksSlice';
+import { StyledBooks, StyledSearch, StyledSubtitle, StyledTitle } from './styles_sass';
 
 const Search = () => {
-  const { title = "", page = "" } = useParams();
+  const { title = '', page = '' } = useParams();
   const navigate = useNavigate();
 
   const searchBooks = useAppSelector(getSearchBooks);
   const status = useAppSelector(getSearchBooksStatus);
   const totalPage = useAppSelector(getSearchBooksTotalPage);
-
   const dispatch = useAppDispatch();
-
   const handlePage = (item: number) => {
     navigate(`/search/${title}/${item}`);
   };
-
   const handleNextPage = () => {
     if (Number(page) === totalPage) {
       return;
     }
     navigate(`/search/${title}/${Number(page) + 1}`);
   };
-
   const handlePrevPage = () => {
     if (Number(page) === 1) {
       return;
@@ -51,30 +43,31 @@ const Search = () => {
     dispatch(setCurrentPage(Number(page)));
   }, [dispatch, title, page]);
 
-  if (status === "loading") {
+  if (status === 'loading') {
     return <Loading />;
   }
-  if (status === "error") {
+  if (status === 'error') {
     return <div>Error: </div>;
   }
   return (
-    <div className="div__search">
-      <h1>‘{title}’ SEARCH RESULTS</h1>
-      <h3>Found {searchBooks?.total} books</h3>
-      <ul>
+    <StyledSearch>
+      <StyledTitle>‘{title}’ SEARCH RESULTS</StyledTitle>
+      <StyledSubtitle>Found {searchBooks?.total} books</StyledSubtitle>
+      <StyledBooks>
         {searchBooks.books.map((book) => {
           return <BookCart key={book.isbn13} book={book} />;
         })}
-      </ul>
+      </StyledBooks>
       <Pagination
         handlePrevPage={handlePrevPage}
         handlePage={handlePage}
         handleNextPage={handleNextPage}
         totalPage={totalPage}
       />
-      
-    </div>
+     
+    </StyledSearch>
   );
 };
+  
 
 export default Search;

@@ -1,15 +1,13 @@
 import React from "react";
-import "./Footer.scss";
+import { StyledFooter, StyledText } from "./styles";
 
-export const Footer = () => {
-    return (
-        <footer className="footer">
-            <div className="footer--padding-24">
-                <p>©2022 Bookstore</p>
-            </div>
-            <p>All rights reserved</p>
-        </footer>
-    )
-}
+const Footer = () => {
+  return (
+    <StyledFooter>
+      <StyledText>©2022 Bookstore</StyledText>
+      <StyledText>All rights reserved</StyledText>
+    </StyledFooter>
+  );
+};
 
 export default Footer;

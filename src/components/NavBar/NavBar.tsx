@@ -11,10 +11,26 @@ import Menu from '../Menu/Menu';
 import SearchBook from '../SearchBook/SearchBook';
 import { fetchNavSearchBooks } from '../../store/slices/navSearchBooksSlice';
 import { getNavSearchBooks } from '../../store/selectors/navSearchBooksSelectors';
-import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-import "./Navbar.scss"
-interface ICart {
+
+import {
+  StyledAccount,
+  StyledAllResultsButton,
+  StyledOpen,
+  StyledCart,
+  StyledCartCircle,
+  StyledContainer,
+  StyledFavoriteCircle,
+  StyledFavorites,
+  StyledInput,
+  StyledLogo,
+  StyledNavbar,
+  StyledSearch,
+  StyledSearchButton,
+  StyledSearchResult,
+  StyledSearchResultContainer,
+} from './styles_sass';
+type Cart = {
   image: string;
   title: string;
   authors: string;
@@ -23,8 +39,8 @@ interface ICart {
   isbn13: string;
   quantity: number;
   totalPrice: string;
-}
-interface IFavoriteBook {
+};
+type FavoriteBook = {
   image: string;
   title: string;
   authors: string;
@@ -32,24 +48,24 @@ interface IFavoriteBook {
   price: string;
   isbn13: string;
   rating: string;
-}
-interface IData {
+};
+type Data = {
   title: string;
-}
+};
 export const NavBar = () => {
-  const { register, handleSubmit, reset } = useForm<IData>();
+  const { register, handleSubmit, reset } = useForm<Data>();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [title, setTitle] = useState<string>('');
   const page: string = '1';
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const favoriteBooks: IFavoriteBook[] = useAppSelector(getFavoriteBooks);
+  const favoriteBooks: FavoriteBook[] = useAppSelector(getFavoriteBooks);
   const navSearchBooks = useAppSelector(getNavSearchBooks);
-  const carts: ICart[] = useAppSelector(getCarts);
+  const carts: Cart[] = useAppSelector(getCarts);
   useEffect(() => {
     dispatch(fetchNavSearchBooks({ title, page }));
   }, [title]);
-  const onSubmit = (data: IData) => {
+  const onSubmit = (data: Data) => {
     navigate(`search/${data.title}/1`);
     setTitle('');
     reset();
@@ -61,15 +77,14 @@ export const NavBar = () => {
     setIsOpen(true);
   };
   return (
-    <nav className="navigation">
+    <StyledNavbar>
       <Menu handleClose={handleClose} isOpen={isOpen} />
-      <NavLink to={routes.HOME}>
+      <StyledLogo to={routes.HOME}>
         <Icon id="logo" />
-      </NavLink>
-
-      <div className="div__search">
+      </StyledLogo>
+      <StyledSearch>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <input
+          <StyledInput
             placeholder="Search"
             type="text"
             {...register('title', {
@@ -77,12 +92,12 @@ export const NavBar = () => {
               onChange: (e: ChangeEvent<HTMLInputElement>) => setTitle(e.target.value),
             })}
           />
-          <button className='btn_search' type="submit">
+          <StyledSearchButton type="submit">
             <Icon id="search" />
-          </button>
+          </StyledSearchButton>
           {title && (
-            <div className="search__resault">
-              <div className="search__reasault__container">
+            <StyledSearchResult>
+              <StyledSearchResultContainer>
                 {navSearchBooks.books.map((book) => {
                   return (
                     <div onClick={() => setTitle('')}>
@@ -90,42 +105,42 @@ export const NavBar = () => {
                     </div>
                   );
                 })}
-              </div>
+              </StyledSearchResultContainer>
 
-              <button className="button__reasault">all results</button>
-            </div>
+              <StyledAllResultsButton>all results</StyledAllResultsButton>
+            </StyledSearchResult>
           )}
         </form>
-      </div>
-      <div className='conteiner__nav'>
-        <NavLink className="nav__favorites" to={routes.FAVORITES}>
+      </StyledSearch>
+      <StyledContainer>
+        <StyledFavorites to={routes.FAVORITES}>
           <Icon id="favorites" />
           {favoriteBooks.length ? (
-            <div className="div__circle">
+            <StyledFavoriteCircle>
               <Icon id="red-circle" />
-            </div>
+            </StyledFavoriteCircle>
           ) : (
             <></>
           )}
-        </NavLink>
-        <NavLink className="nav__cart" to={routes.CART}>
+        </StyledFavorites>
+        <StyledCart to={routes.CART}>
           <Icon id="cart" />
           {carts.length ? (
-            <div className="div__circle__cart">
+            <StyledCartCircle>
               <Icon id="red-circle" />
-            </div>
+            </StyledCartCircle>
           ) : (
             <></>
           )}
-        </NavLink>
-        <NavLink to={routes.ACCOUNT}>
+        </StyledCart>
+        <StyledAccount to={routes.ACCOUNT}>
           <Icon id="account" />
-        </NavLink>
-        <div className="burger__open" onClick={handleOpen}>
-          <Icon id="burger-open" />
-        </div>
-      </div>
-    </nav>
+        </StyledAccount>
+        <StyledOpen onClick={handleOpen}>
+          <Icon id="-open" />
+        </StyledOpen>
+      </StyledContainer>
+    </StyledNavbar>
   );
 };
 

@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks/hooks";
 import {getNewBooks,getNewBooksStatus,} from "../../store/selectors/newBooksSelectors";
 import { fetchNewBooks } from "../../store/slices/newBooksSlice";
 import Loading from "../Loading/Loading";
-
+import { StyledBooks, StyledNewBooks, StyledTitle } from "./styles";
 const NewBooks = () => {
     const newBooks = useAppSelector(getNewBooks);
     const status = useAppSelector(getNewBooksStatus);
@@ -24,14 +24,14 @@ const NewBooks = () => {
     }
   
     return (
-      <div className="new-book">
-        <h1>NEW RELEASES BOOKS</h1>
-        <ul className="list-group">
+      <StyledNewBooks>
+        <StyledTitle>NEW RELEASES BOOKS</StyledTitle>
+        <StyledBooks className="list-group">
           {newBooks.books.map((book)=> {
             return <BookCart key={book.isbn13} book={book} />;
           })}
-        </ul>
-      </div>
+        </StyledBooks>
+      </StyledNewBooks>
     );
   };
   

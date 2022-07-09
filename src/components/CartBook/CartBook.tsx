@@ -5,6 +5,17 @@ import { useAppDispatch } from '../../store/hooks/hooks';
 import { removeCart, updateQuantity } from '../../store/slices/cartSlice';
 import ButtonCancel from '../ButtonCancel/Buttoncancel';
 import Icon from '../Icon/Icon';
+import {
+  StyledBookInfo,
+  StyledCartBook,
+  StyledImage,
+  StyledPrice,
+  StyledText,
+  StyledTitle,
+  StyledRemoveCartButton,
+  StyledButton,
+  StyledQuantity,
+} from "./styles_sass";
 
 interface ICart {
   image: string;
@@ -44,32 +55,33 @@ const CartBook = ({ book }: ICartBook) => {
     dispatch(removeCart(book));
   };
   return (
-    <div className="cart-book">
-      <Link className="link__book" to={'/books/' + book.isbn13}>
+    <StyledCartBook>
+      <StyledImage to={"/books/" + book.isbn13}>
         <img src={book.image} alt={book.image} />
-      </Link>
-      <div className="book__info">
-        <h3>{book.title}</h3>
-        <p>
+      </StyledImage>
+      <StyledBookInfo>
+        <StyledTitle>{book.title}</StyledTitle>
+        <StyledText>
           by {book.authors}, {book.year}
-        </p>
-        <p>isbn № {book.isbn13}</p>
-        <div className="quantity">
-          <button onClick={handleMinus}>
+        </StyledText>
+        <StyledText>isbn № {book.isbn13}</StyledText>
+        <StyledQuantity>
+          <StyledButton onClick={handleMinus}>
             <Icon id="minus" />
-          </button>
+          </StyledButton>
           {quantity}
-          <button onClick={handlePlus}>
+          <StyledButton onClick={handlePlus}>
             <Icon id="plus" />
-          </button>
-        </div>
-      </div>
-      <h2>${book.totalPrice}</h2>
-      <button className="remove__cart__button" onClick={handleRemoveCart}>
-        <ButtonCancel />
-      </button>
-    </div>
+          </StyledButton>
+        </StyledQuantity>
+      </StyledBookInfo>
+      <StyledPrice>${book.totalPrice}</StyledPrice>
+      <StyledRemoveCartButton onClick={handleRemoveCart}>
+        <ButtonCancel/>
+      </StyledRemoveCartButton>
+    </StyledCartBook>
   );
 };
+
 
 export default CartBook;

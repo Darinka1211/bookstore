@@ -5,7 +5,12 @@ import { routes } from "../../routes/routes";
 import { useAppDispatch, useAppSelector } from "../../store/hooks/hooks";
 import { getUser } from "../../store/selectors/userSelectors";
 import { unsetUser } from "../../store/slices/userSlice";
-import "./User.scss"
+import {
+  StyledAccount,
+  StyledButton,
+  StyledSubtitle,
+  StyledTitle,
+} from "./styles_sass";
 
 const User = () => {
   const { isAuth, email } = useAppSelector(getUser);
@@ -15,15 +20,15 @@ const User = () => {
   };
   if (isAuth) {
     return (
-      <div className="container_user">
-        <h2 >you have successfully logged!</h2>
-        <h3 >
-          Your email: <span>{email}</span>
-        </h3>
-        <div className="div__btn" onClick={handleLogOut}>
-          <Button text="Log out" />
-        </div>
-      </div>
+      <StyledAccount>
+      <StyledTitle>you have successfully logged!</StyledTitle>
+      <StyledSubtitle>
+        Your email: <span>{email}</span>
+      </StyledSubtitle>
+      <StyledButton onClick={handleLogOut}>
+        <Button text="Log out" />
+      </StyledButton>
+    </StyledAccount>
     );
   }
   return <Navigate to={`/${routes.SIGN_UP}`} />;

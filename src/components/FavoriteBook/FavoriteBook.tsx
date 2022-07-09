@@ -4,7 +4,16 @@ import { removeFavorite } from '../../store/slices/favoriteBooksSlice';
 import Icon from '../Icon/Icon';
 import StarRating from '../StarRating/StarRating';
 import { Link } from 'react-router-dom';
-import './FavoriteBook.scss';
+import {
+  StyledBookInfo,
+  StyledFavoriteBook,
+  StyledImage,
+  StyledPrice,
+  StyledRaiting,
+  StyledText,
+  StyledTitle,
+  StyledRemoveButton,
+} from "./styles_sass";
 
 interface IFavoriteBook {
   image: string;
@@ -24,28 +33,26 @@ const FavoriteBook = ({ book }: IBook) => {
     dispatch(removeFavorite(book));
   };
   return (
-    <div className="favoriteBook">
-      <Link to={'/books/' + book.isbn13}>
-        {' '}
-        <img src={book.image} alt={book.image} /> /
-      </Link>
-      <div className="bookInfo">
-        <h3 className="">{book.title}</h3>
-        <p>
-          {' '}
-          by {book.authors}, {book.year}{' '}
-        </p>
-        <h2>
+    <StyledFavoriteBook>
+     <StyledImage to={"/books/" + book.isbn13}>
+        <img src={book.image} alt={book.image} />
+      </StyledImage>
+      <StyledBookInfo>
+        <StyledTitle>{book.title}</StyledTitle>
+        <StyledText>
+          by {book.authors}, {book.year}
+        </StyledText>
+        <StyledPrice>
           {book.price}
-          <div className="stars">
+          <StyledRaiting>
             <StarRating rating={Number(book.rating)} />
-          </div>
-        </h2>
-      </div>
-      <button className="remove--button" onClick={handleRemoveFavorite}>
+          </StyledRaiting>
+        </StyledPrice>
+      </StyledBookInfo>
+      <StyledRemoveButton onClick={handleRemoveFavorite}>
         <Icon id="favorites" />
-      </button>
-    </div>
+      </StyledRemoveButton>
+    </StyledFavoriteBook>
   );
 };
 export default FavoriteBook;

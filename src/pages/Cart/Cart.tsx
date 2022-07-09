@@ -8,7 +8,16 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks/hooks";
 import { getCarts,getSumTotalCarts, getTotalCarts,getVatCarts,} from "../../store/selectors/cartSelectors";
 import { getUser } from "../../store/selectors/userSelectors";
 import { removeAllCart } from "../../store/slices/cartSlice";
-
+import {
+  StyledBackButton,
+  StyledCart,
+  StyledCheckButton,
+  StyledCheckItem,
+  StyledCheckList,
+  StyledCheckTotal,
+  StyledText,
+  StyledTitle,
+} from "./styles_sass";
 
 
 const Cart = () => {
@@ -28,31 +37,31 @@ const Cart = () => {
   };
   if (isAuth) {
     return (
-      <div  className="div__container">
-        <div className="div__btn" onClick={handleBack}>
+      <StyledCart>
+        <StyledBackButton onClick={handleBack}>
           <Icon id="back" />
-        </div>
-        <h1>YOUR CART</h1>
+        </StyledBackButton>
+        <StyledTitle>YOUR CART</StyledTitle>
         {carts.length === 0 ? (
-          <p>Your cart is empty!</p>
+          <StyledText>Your cart is empty!</StyledText>
         ) : (
           carts.map((book) => <CartBook key={book.isbn13} book={book} />)
         )}
-        <div className="div__checklist">
-          <p className="checklist__item">
+        <StyledCheckList>
+          <StyledCheckItem>
             Sum total<span>$ {sumTotal}</span>
-          </p>
-          <p>
+          </StyledCheckItem>
+          <StyledCheckItem>
             VAT<span>$ {vat}</span>
-          </p>
-          <h2>
+          </StyledCheckItem>
+          <StyledCheckTotal>
             Total:<span>${total}</span>
-          </h2>
-          <div className="btn__checkout" onClick={handleCheckOut}>
+          </StyledCheckTotal>
+          <StyledCheckButton onClick={handleCheckOut}>
             <Button text="check out" />
-          </div>
-        </div>
-      </div >
+          </StyledCheckButton>
+        </StyledCheckList>
+      </StyledCart>
     );
   }
   return <Navigate to={`/${routes.SIGN_UP}`} />;
