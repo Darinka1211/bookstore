@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import {  useNavigate, useParams } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import ButtonFavorites from '../../components/ButtonFavorites/ButtonFavorites';
 import Icon from '../../components/Icon/Icon';
@@ -59,9 +59,7 @@ interface IFavoriteBook {
   isbn13: string;
   rating: string;
 }
-interface IButton {
-  isActive: boolean;
-}
+
 
 const DetailsBook = () => {
   const { id = '' } = useParams();

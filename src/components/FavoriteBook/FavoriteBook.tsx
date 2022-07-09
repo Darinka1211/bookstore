@@ -3,7 +3,6 @@ import { useAppDispatch } from '../../store/hooks/hooks';
 import { removeFavorite } from '../../store/slices/favoriteBooksSlice';
 import Icon from '../Icon/Icon';
 import StarRating from '../StarRating/StarRating';
-import { Link } from 'react-router-dom';
 import {
   StyledBookInfo,
   StyledFavoriteBook,

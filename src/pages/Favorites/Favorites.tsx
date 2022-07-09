@@ -24,7 +24,7 @@ interface IFavoriteBook {
     rating: string;
   }
   const Favorites = () => {
-    const { isAuth, email } = useAppSelector(getUser);
+    const { isAuth, } = useAppSelector(getUser);
     const navigate = useNavigate();
     const favoriteBooks: IFavoriteBook[] = useAppSelector(getFavoriteBooks);
   
