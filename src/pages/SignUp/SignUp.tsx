@@ -16,7 +16,7 @@ import {
   StyledSign,
   StyledTab,
   StyledTabs,
-} from "./styles_sass";
+} from "./SignUpStyles";
 interface ISignUp {
   name: string;
   email: string;

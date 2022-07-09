@@ -17,7 +17,7 @@ import {
   StyledSign,
   StyledTab,
   StyledTabs,
-} from "./styles_sass";
+} from "./SignInStyles";
 
 interface ISignIn {
   email: string;

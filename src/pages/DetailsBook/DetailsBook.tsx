@@ -30,7 +30,7 @@ import {
   StyledTabList,
   StyledTabPanel,
   StyledTitle,
-} from "./styles_sass";
+} from "./DatailsBookStyles";
 
 interface IBookDetails {
   authors: string;

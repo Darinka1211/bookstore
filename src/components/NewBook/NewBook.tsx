@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks/hooks";
 import {getNewBooks,getNewBooksStatus,} from "../../store/selectors/selector";
 import { fetchNewBooks } from "../../store/slices/newBooksSlice";
 import Loading from "../Loading/Loading";
-import { StyledBooks, StyledNewBooks, StyledTitle } from "./styles";
+import { StyledBooks, StyledNewBooks, StyledTitle } from "./NewBookStyles";
 const NewBooks = () => {
     const newBooks = useAppSelector(getNewBooks);
     const status = useAppSelector(getNewBooksStatus);

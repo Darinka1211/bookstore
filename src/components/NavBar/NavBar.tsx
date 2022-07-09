@@ -28,7 +28,7 @@ import {
   StyledSearchButton,
   StyledSearchResult,
   StyledSearchResultContainer,
-} from './styles_sass';
+} from './NavBarStyles';
 type Cart = {
   image: string;
   title: string;

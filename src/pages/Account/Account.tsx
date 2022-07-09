@@ -10,7 +10,7 @@ import {
   StyledButton,
   StyledSubtitle,
   StyledTitle,
-} from "./styles_sass";
+} from "./AccountStyles";
 
 const User = () => {
   const { isAuth, email } = useAppSelector(getUser);

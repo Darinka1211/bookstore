@@ -6,7 +6,7 @@ import ButtonCancel from '../ButtonCancel/Buttoncancel';
 import Icon from '../Icon/Icon';
 import {
   StyledBookInfo,
-  StyledCartBook,
+  StyledCartCard,
   StyledImage,
   StyledPrice,
   StyledText,
@@ -14,7 +14,7 @@ import {
   StyledRemoveCartButton,
   StyledButton,
   StyledQuantity,
-} from "./styles_sass";
+} from "./CartCardStyles";
 
 interface ICart {
   image: string;
@@ -26,11 +26,11 @@ interface ICart {
   quantity: number;
   totalPrice: string;
 }
-interface ICartBook {
+interface ICartCard {
   book: ICart;
 }
 
-const CartBook = ({ book }: ICartBook) => {
+const CartCard = ({ book }: ICartCard) => {
   const [quantity, setQuantity] = useState(book.quantity);
   const dispatch = useAppDispatch();
   const increaseQuantity = (n = 1) => {
@@ -54,7 +54,7 @@ const CartBook = ({ book }: ICartBook) => {
     dispatch(removeCart(book));
   };
   return (
-    <StyledCartBook>
+    <StyledCartCard>
       <StyledImage to={"/books/" + book.isbn13}>
         <img src={book.image} alt={book.image} />
       </StyledImage>
@@ -78,9 +78,9 @@ const CartBook = ({ book }: ICartBook) => {
       <StyledRemoveCartButton onClick={handleRemoveCart}>
         <ButtonCancel/>
       </StyledRemoveCartButton>
-    </StyledCartBook>
+    </StyledCartCard>
   );
 };
 
 
-export default CartBook;
+export default CartCard;

@@ -12,7 +12,7 @@ import {
   getSearchBooksTotalPage,
 } from '../../store/selectors/selector';
 import { fetchSearchBooks, setCurrentPage } from '../../store/slices/searchBooksSlice';
-import { StyledBooks, StyledSearch, StyledSubtitle, StyledTitle } from './styles_sass';
+import { StyledBooks, StyledSearch, StyledSubtitle, StyledTitle } from './SearchStyles';
 
 const Search = () => {
   const { title = '', page = '' } = useParams();

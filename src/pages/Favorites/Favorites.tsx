@@ -12,7 +12,7 @@ import {
   StyledFavorites,
   StyledText,
   StyledTitle,
-} from "./styles_sass";
+} from "./FavoritesStyles";
 
 interface IFavoriteBook {
     image: string;

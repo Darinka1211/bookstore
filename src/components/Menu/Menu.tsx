@@ -19,7 +19,7 @@ import {
   StyledMenuNav,
   StyledSearch,
   StyledInput,
-} from './styles_sass';
+} from './MenuStyles';
 interface IData {
   title: string;
 }

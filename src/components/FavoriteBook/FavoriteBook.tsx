@@ -13,7 +13,7 @@ import {
   StyledText,
   StyledTitle,
   StyledRemoveButton,
-} from "./styles_sass";
+} from "./FavoriteBookStyles";
 
 interface IFavoriteBook {
   image: string;

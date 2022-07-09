@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const StyledCartBook = styled.div`
+const StyledCartCard = styled.div`
   position: relative;
   display: flex;
   gap: 32px;
@@ -86,7 +86,7 @@ const StyledButton = styled.button`
 
 export {
   StyledBookInfo,
-  StyledCartBook,
+  StyledCartCard,
   StyledImage,
   StyledPrice,
   StyledText,

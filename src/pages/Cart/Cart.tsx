@@ -1,7 +1,7 @@
 import React from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
-import CartBook from "../../components/CartBook/CartBook";
+import CartBook from "../../components/CartCard/CartCard";
 import Icon from "../../components/Icon/Icon";
 import { routes } from "../../routes/routes";
 import { useAppDispatch, useAppSelector } from "../../store/hooks/hooks";
@@ -16,7 +16,7 @@ import {
   StyledCheckTotal,
   StyledText,
   StyledTitle,
-} from "./styles_sass";
+} from "./CartStyles";
 
 
 const Cart = () => {

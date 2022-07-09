@@ -1,6 +1,6 @@
 import React from 'react';
 import NewBooks from '../../components/NewBook/NewBook';
-import { StyledHome, StyledTitle } from './styles';
+import { StyledHome, StyledTitle } from './HomeStyles';
 
 
 const Home = () => {
