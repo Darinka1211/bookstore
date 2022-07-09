@@ -1,4 +1,3 @@
-import React from "react";
 import { RootState } from "../store";
 
 export const getCarts = (state: RootState) => state.cart.cartRoot.results;
