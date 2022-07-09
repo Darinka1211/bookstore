@@ -1,4 +1,3 @@
-import React from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import CartBook from "../../components/CartCard/CartCard";
@@ -20,7 +19,7 @@ import {
 
 
 const Cart = () => {
-  const { isAuth, email } = useAppSelector(getUser);
+  const { isAuth, } = useAppSelector(getUser);
   const carts = useAppSelector(getCarts);
   const sumTotal = useAppSelector(getSumTotalCarts);
   const vat = useAppSelector(getVatCarts);

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {StyledButton} from "./styles_sass"
 type Button = {
   text: string;
