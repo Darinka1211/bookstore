@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useAppDispatch } from '../../store/hooks/hooks';
 import { removeCart, updateQuantity } from '../../store/slices/cartSlice';
 import ButtonCancel from '../ButtonCancel/Buttoncancel';
