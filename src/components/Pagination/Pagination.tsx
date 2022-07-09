@@ -30,7 +30,7 @@ interface IPagination {
         <div className="page__list">
           {ArrayOfTotalPage.map((item) => (
             <button className="btn_pages"
-              isActive={searchBooksCurrentPage === item}
+              // isActive={searchBooksCurrentPage === item}
               key={item}
               onClick={() => handlePage(item)}
             >

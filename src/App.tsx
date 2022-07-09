@@ -1,18 +1,12 @@
 import React from 'react';
-import {Button} from "./components/Button/Button"
-import './App.scss';
-
-import Favorites from './pages/Favorites/Favorites';
-
+import { BrowserRouter } from "react-router-dom";
+import AppRouter from "./router/AppRouter";
 
 function App() {
- 
-
   return (
-    <div className="App">
-
-<Favorites/>
-    </div>
+    <BrowserRouter>
+      <AppRouter />
+    </BrowserRouter>
   );
 }
 

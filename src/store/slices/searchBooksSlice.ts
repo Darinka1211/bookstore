@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { bookApi } from "../../services/bookServises";
-import { ISearchBooksApi } from "../../services/types/intex";
-import { ISearchBooksSlice } from "./types";
+import { bookApi, ISearchBooksApi,ISearchBooksSlice} from "../../servise/serviseBook";
+
+
 
 interface IArguments {
   title: string;

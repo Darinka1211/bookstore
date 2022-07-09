@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import BookCart from "../../components/BookCart/BookCart";
 import Loading from "../../components/Loading/Loading";
 import Pagination from "../../components/Pagination/Pagination";
-import Subscribe from "../../components/Subscribe/Subscribe";
+
 import { useAppDispatch, useAppSelector } from "../../store/hooks/hooks";
 import {
   getSearchBooks,
@@ -72,7 +72,7 @@ const Search = () => {
         handleNextPage={handleNextPage}
         totalPage={totalPage}
       />
-      <Subscribe />
+      
     </div>
   );
 };

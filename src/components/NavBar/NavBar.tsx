@@ -7,7 +7,7 @@ import { getFavoriteBooks } from '../../store/selectors/favoriteBooksSelectors';
 import { useAppDispatch, useAppSelector } from '../../store/hooks/hooks';
 import { getCarts } from '../../store/selectors/cartSelectors';
 import { ChangeEvent, useEffect, useState } from 'react';
-import BurgerMenu from '../BurgerMenu/BurgerMenu';
+import Menu from '../Menu/Menu';
 import SearchBook from '../SearchBook/SearchBook';
 import { fetchNavSearchBooks } from '../../store/slices/navSearchBooksSlice';
 import { getNavSearchBooks } from '../../store/selectors/navSearchBooksSelectors';
@@ -54,15 +54,15 @@ export const NavBar = () => {
     setTitle('');
     reset();
   };
-  const handleBurgerClose = () => {
+  const handleClose = () => {
     setIsOpen(false);
   };
-  const handleBurgerOpen = () => {
+  const handleOpen = () => {
     setIsOpen(true);
   };
   return (
     <nav className="navigation">
-      <BurgerMenu handleBurgerClose={handleBurgerClose} isOpen={isOpen} />
+      <Menu handleClose={handleClose} isOpen={isOpen} />
       <NavLink to={routes.HOME}>
         <Icon id="logo" />
       </NavLink>
@@ -121,7 +121,7 @@ export const NavBar = () => {
         <NavLink to={routes.ACCOUNT}>
           <Icon id="account" />
         </NavLink>
-        <div className="burger__open" onClick={handleBurgerOpen}>
+        <div className="burger__open" onClick={handleOpen}>
           <Icon id="burger-open" />
         </div>
       </div>

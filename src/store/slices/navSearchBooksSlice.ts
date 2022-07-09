@@ -1,7 +1,5 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { bookApi } from "../../services/bookServises";
-import { ISearchBooksApi } from "../../services/types/intex";
-import { ISearchBooksSlice } from "./types";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { bookApi, ISearchBooksApi, ISearchBooksSlice } from '../../servise/serviseBook';
 
 interface IArguments {
   title: string;
@@ -12,23 +10,23 @@ const initialState: ISearchBooksSlice = {
   results: {
     books: [],
     error: null,
-    total: "0",
+    total: '0',
   },
   totalPage: 1,
   currentPage: 1,
   error: null,
-  status: "idle",
+  status: 'idle',
 };
 
-export const fetchNavSearchBooks = createAsyncThunk<
-  ISearchBooksApi,
-  IArguments
->("navSearchBooks/fetchSearchBooks", async ({ title, page }) => {
-  return await bookApi.getBooksBySearch(title, page);
-});
+export const fetchNavSearchBooks = createAsyncThunk<ISearchBooksApi, IArguments>(
+  'navSearchBooks/fetchSearchBooks',
+  async ({ title, page }) => {
+    return await bookApi.getBooksBySearch(title, page);
+  },
+);
 
 const navSearchBooksSlice = createSlice({
-  name: "navSearchBooks",
+  name: 'navSearchBooks',
   initialState,
   reducers: {
     setCurrentPage: (state, action) => {
@@ -37,16 +35,16 @@ const navSearchBooksSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchNavSearchBooks.pending, (state) => {
-      state.status = "loading";
+      state.status = 'loading';
       state.error = null;
     });
     builder.addCase(fetchNavSearchBooks.fulfilled, (state, { payload }) => {
-      state.status = "success";
+      state.status = 'success';
       state.results = payload;
       state.totalPage = Math.round(Number(payload.total) / 10);
     });
     builder.addCase(fetchNavSearchBooks.rejected, (state, { payload }) => {
-      state.status = "error";
+      state.status = 'error';
       state.error = payload;
     });
   },

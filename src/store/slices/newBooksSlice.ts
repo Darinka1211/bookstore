@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { bookApi } from "../../services/bookServises";
-import { INewBooksApi } from "../../services/types/intex";
-import { INewBooksSlice } from "./types";
+import { bookApi,INewBooksApi,INewBooksSlice  } from "../../servise/serviseBook";
+
+
 
 const initialState: INewBooksSlice = {
   results: {

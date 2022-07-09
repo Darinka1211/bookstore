@@ -4,7 +4,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import BooksSlider from "../../components/BookSlider/BookSlider";
 import FavoriteBook from "../../components/FavoriteBook/FavoriteBook";
 import Icon from "../../components/Icon/Icon";
-import Subscribe from "../../components/Subscribe/Subscribe";
+
 import { routes } from "../../routes/routes";
 import { useAppSelector } from "../../store/hooks/hooks";
 import { getFavoriteBooks } from "../../store/selectors/favoriteBooksSelectors";

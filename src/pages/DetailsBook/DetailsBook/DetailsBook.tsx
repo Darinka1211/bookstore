@@ -156,10 +156,14 @@ const DetailsBook = () => {
         </div>
       </div>
       <div className='tab__list' id="tab">
-        <button className='activ__btn' isActive={active === 'description'} onClick={handleDescription}>
+        <button className='activ__btn' 
+        // isActive={active === 'description'} 
+        onClick={handleDescription}>
           Description
         </button>
-        <button isActive={active === 'authors'} onClick={handleAuthors}>
+        <button 
+        // isActive={active === 'authors'} 
+        onClick={handleAuthors}>
           Authors
         </button>
       </div>

@@ -1,13 +1,24 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IFavoriteBook } from "../../types/types";
-import { IFavoriteBooksSlice } from "./types";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+interface IFavoriteBook {
+  image: string;
+  title: string;
+  authors: string;
+  year: string;
+  price: string;
+  isbn13: string;
+  rating: string;
+}
+interface IFavoriteBooksSlice {
+  results: IFavoriteBook[];
+}
 
 const initialState: IFavoriteBooksSlice = {
   results: [],
 };
 
 const favoriteBooksSlice = createSlice({
-  name: "favoriteBooks",
+  name: 'favoriteBooks',
   initialState,
   reducers: {
     addFavorite: (state, { payload }: PayloadAction<IFavoriteBook>) => {
@@ -17,9 +28,7 @@ const favoriteBooksSlice = createSlice({
       ];
     },
     removeFavorite: (state, { payload }: PayloadAction<IFavoriteBook>) => {
-      state.results = state.results.filter(
-        (item) => item.isbn13 !== payload.isbn13
-      );
+      state.results = state.results.filter((item) => item.isbn13 !== payload.isbn13);
     },
   },
 });

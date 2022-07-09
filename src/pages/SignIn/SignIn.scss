@@ -51,18 +51,18 @@ input {
   font-size: 16px;
   font-weight: 400;
   line-height: 32px;
-  &::placeholder {
+  input::placeholder {
     color: $system-secondary;
   }
 }
-&:focus {
+input:focus {
   outline: none;
   border: 2px solid $bg-primary2;
 }
-&:active {
+input:active {
   border: 1px solid $bg-primary2;
 }
-&:disabled {
+input:disabled {
   background-color: $bg-primary2;
 }
 .ladel__form {

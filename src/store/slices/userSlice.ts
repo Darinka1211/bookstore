@@ -1,5 +1,11 @@
+import React from "react";
 import { createSlice } from "@reduxjs/toolkit";
-import { IUserStrore } from "./types";
+
+
+interface IUserStrore {
+  isAuth: boolean;
+  email: string | null;
+}
 
 const initialState: IUserStrore = {
   isAuth: false,
