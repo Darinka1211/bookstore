@@ -3,14 +3,13 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import Icon from '../Icon/Icon';
 import { routes } from '../../routes/routes';
-import { getFavoriteBooks } from '../../store/selectors/favoriteBooksSelectors';
+import { getFavoriteBooks,getNavSearchBooks } from '../../store/selectors/selector';
 import { useAppDispatch, useAppSelector } from '../../store/hooks/hooks';
-import { getCarts } from '../../store/selectors/cartSelectors';
+import { getCarts } from '../../store/selectors/selector';
 import { ChangeEvent, useEffect, useState } from 'react';
 import Menu from '../Menu/Menu';
 import SearchBook from '../SearchBook/SearchBook';
 import { fetchNavSearchBooks } from '../../store/slices/navSearchBooksSlice';
-import { getNavSearchBooks } from '../../store/selectors/navSearchBooksSelectors';
 import { NavLink } from 'react-router-dom';
 
 import {

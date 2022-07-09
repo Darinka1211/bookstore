@@ -5,8 +5,7 @@ import CartBook from "../../components/CartBook/CartBook";
 import Icon from "../../components/Icon/Icon";
 import { routes } from "../../routes/routes";
 import { useAppDispatch, useAppSelector } from "../../store/hooks/hooks";
-import { getCarts,getSumTotalCarts, getTotalCarts,getVatCarts,} from "../../store/selectors/cartSelectors";
-import { getUser } from "../../store/selectors/userSelectors";
+import { getCarts,getSumTotalCarts, getTotalCarts,getVatCarts, getUser} from "../../store/selectors/selector";
 import { removeAllCart } from "../../store/slices/cartSlice";
 import {
   StyledBackButton,

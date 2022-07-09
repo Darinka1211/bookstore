@@ -5,8 +5,8 @@ import FavoriteBook from "../../components/FavoriteBook/FavoriteBook";
 import Icon from "../../components/Icon/Icon";
 import { routes } from "../../routes/routes";
 import { useAppSelector } from "../../store/hooks/hooks";
-import { getFavoriteBooks } from "../../store/selectors/favoriteBooksSelectors";
-import { getUser } from "../../store/selectors/userSelectors";
+import { getFavoriteBooks,getUser} from "../../store/selectors/selector";
+
 import {
   StyledBackButton,
   StyledFavorites,

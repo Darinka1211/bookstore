@@ -43,7 +43,7 @@ export interface INewBooksSlice {
   error: any;
   status: RequestStatusType;
 }
- export interface IDetailsBookSlice {
+export interface IDetailsBookSlice {
   result: IBookDetails;
   error: any;
   status: RequestStatusType;
@@ -58,7 +58,7 @@ export interface IBookDetailsApi extends IBookDetails {}
 export interface ISearchBooksApi extends INewBooksApi {
   page: string;
 }
-type RequestStatusType = "idle" | "loading" | "success" | "error";
+type RequestStatusType = 'idle' | 'loading' | 'success' | 'error';
 
 class BookService {
   private readonly API_URL = 'https://api.itbook.store/1.0/';

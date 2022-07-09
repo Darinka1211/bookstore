@@ -9,7 +9,7 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks/hooks';
 import {
   getDetailsBook,
   getDetailsBookStatus,
-} from '../../store/selectors/detailsBookSelectors';
+} from '../../store/selectors/selector';
 import { addCart } from '../../store/slices/cartSlice';
 import { fetchBookDetails } from '../../store/slices/detailsBooksSlice';
 import { addFavorite } from '../../store/slices/favoriteBooksSlice';

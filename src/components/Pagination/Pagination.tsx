@@ -1,6 +1,6 @@
 import React from "react";
 import { useAppSelector } from "../../store/hooks/hooks";
-import { getSearchBooksCurrentPage } from "../../store/selectors/searchBooksSelectors";
+import { getSearchBooksCurrentPage } from "../../store/selectors/selector";
 import { createPages } from "./pageCreator";
 import Icon from "../Icon/Icon";
 import "./Pagination.scss"

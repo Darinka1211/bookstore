@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import {BookCart} from "../BookCart/BookCart"
 import { useAppDispatch, useAppSelector } from "../../store/hooks/hooks";
-import {getNewBooks,getNewBooksStatus,} from "../../store/selectors/newBooksSelectors";
+import {getNewBooks,getNewBooksStatus,} from "../../store/selectors/selector";
 import { fetchNewBooks } from "../../store/slices/newBooksSlice";
 import Loading from "../Loading/Loading";
 import { StyledBooks, StyledNewBooks, StyledTitle } from "./styles";

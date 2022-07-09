@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { routes } from '../../routes/routes';
 import { useAppDispatch, useAppSelector } from '../../store/hooks/hooks';
-import { getUser } from '../../store/selectors/userSelectors';
+import { getUser } from '../../store/selectors/selector';
 import { unsetUser } from '../../store/slices/userSlice';
 import Button from '../Button/Button';
 import ButtonCancel from '../ButtonCancel/Buttoncancel';

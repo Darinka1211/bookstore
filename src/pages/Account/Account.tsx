@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import { routes } from "../../routes/routes";
 import { useAppDispatch, useAppSelector } from "../../store/hooks/hooks";
-import { getUser } from "../../store/selectors/userSelectors";
+import { getUser } from "../../store/selectors/selector";
 import { unsetUser } from "../../store/slices/userSlice";
 import {
   StyledAccount,
