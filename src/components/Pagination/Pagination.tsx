@@ -2,7 +2,7 @@ import { useAppSelector } from "../../store/hooks/hooks";
 import { getSearchBooksCurrentPage } from "../../store/selectors/selector";
 import { createPages } from "./pageCreator";
 import Icon from "../Icon/Icon";
-import "./Pagination.scss"
+import { StyledPagination, StyledNavigationButton, StyledNumberButton, StyledNumberButtonList } from "./PaginationStyled"
 
 interface IPagination {
     handlePrevPage: () => void;
@@ -22,26 +22,26 @@ interface IPagination {
   
     createPages(ArrayOfTotalPage, totalPage, searchBooksCurrentPage);
     return (
-      <div className="pagination_div">
-        <button className="btn_nav" type="button" onClick={handlePrevPage}>
+      <StyledPagination>
+        <StyledNavigationButton type="button" onClick={handlePrevPage}>
           <Icon id="prev" /> Prev
-        </button>
-        <div className="page__list">
+        </StyledNavigationButton>
+        <StyledNumberButtonList>
           {ArrayOfTotalPage.map((item) => (
-            <button className="btn_pages"
-              // isActive={searchBooksCurrentPage === item}
+            <StyledNumberButton
+               isActive={searchBooksCurrentPage === item}
               key={item}
               onClick={() => handlePage(item)}
             >
               {item}
-            </button>
+            </StyledNumberButton>
           ))}
-        </div>
+        </StyledNumberButtonList>
   
-        <button className="btn__nav" type="button" onClick={handleNextPage}>
+        <StyledNavigationButton type="button" onClick={handleNextPage}>
           Next <Icon id="next" />
-        </button>
-      </div>
+        </StyledNavigationButton>
+      </StyledPagination>
     );
   };
   

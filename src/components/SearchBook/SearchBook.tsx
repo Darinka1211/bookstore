@@ -1,5 +1,4 @@
-
-import { Link } from "react-router-dom";
+import { StyledSearchBook, StyledImage, StyledTitle } from "./SearchBookStyle"
 
 
 interface IBook {
@@ -15,12 +14,12 @@ interface IBook {
   }
   const SearchBook = ({ book }: ISearhBook) => {
     return (
-      <Link to={`/books/${book.isbn13}`}>
-        <div className="div_image">
+      <StyledSearchBook to={`/books/${book.isbn13}`}>
+        <StyledImage>
           <img src={book.image} alt="#" />
-        </div>
-        <div className="div__title">{book.title}</div>
-      </Link>
+        </StyledImage>
+        <StyledTitle>{book.title}</StyledTitle>
+      </StyledSearchBook>
     );
   };
   

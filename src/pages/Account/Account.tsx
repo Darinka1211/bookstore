@@ -21,7 +21,9 @@ const User = () => {
   if (isAuth) {
     return (
       <StyledAccount>
-      <StyledTitle>you have successfully logged!</StyledTitle>
+        <StyledTitle>ACCOUNT</StyledTitle>
+
+
       <StyledSubtitle>
         Your email: <span>{email}</span>
       </StyledSubtitle>
